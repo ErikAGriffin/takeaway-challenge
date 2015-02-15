@@ -26,8 +26,8 @@ class Takeaway
     menu
   end
 
-  def order(dish,quantity=-1)
-    if quantity == -1
+  def order(dish,quantity="ADD")
+    if quantity == "ADD"
       dish.add
     else
       dish.set_quantity(quantity)

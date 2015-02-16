@@ -12,6 +12,11 @@ describe 'Dish' do
     expect(dish.price).to eq 1.50
   end
 
+
+  # It should NOT have a quantity, unless later
+  # quantity is implemented as 'stock' and is decremented
+  # with each order, so as a takeaway can 'run out' of a dish.
+
   it 'has an order quantity' do
     expect(dish.quantity).to eq 0
   end

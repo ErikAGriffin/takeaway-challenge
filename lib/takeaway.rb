@@ -1,16 +1,14 @@
-require 'twilio-ruby'
+require_relative 'texter'
 class Takeaway
+
+  include Texter
 
   attr_reader :dishlist
 
   def initialize(dishes = [])
     @dishlist = dishes
 
-    # -- Twilio Login
-    account_sid = "ACaec4d28c46b3cad3b94eb351ea3231d5"
-    auth_token = "04c7f3d58a93daca72f3b40bb132f310"
-
-    @texter = Twilio::REST::Client.new account_sid, auth_token
+    @texter = new_text_client
   end
 
 
@@ -41,13 +39,10 @@ class Takeaway
     end
   end
 
-  def place_order(expected_price)
-    if calculate_price != expected_price
-      raise 'That price is unexpected'
-    else
+  def place_order
       msg = order_success
-      @texter.account.messages.create({to: "+447759862868",from: "+441183240530",body: msg})
-    end
+    # !! ** !!
+      #@texter.account.messages.create({to: "+447759862868",from: "+441183240530",body: msg})
   end
 
 

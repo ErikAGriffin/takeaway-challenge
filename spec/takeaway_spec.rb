@@ -54,10 +54,7 @@ describe 'Takeaway' do
     expect(steak.quantity).to eq 1
   end
 
-  it 'raises an error if the expected total is not the expressed total' do
-
-    # Why would place_order need to take an argument for expected price?
-    # The price is set by the program..
+  it 'Calculates the total price correctly' do
 
     populate_menu
 
@@ -68,7 +65,7 @@ describe 'Takeaway' do
     # Ordering 3 burgers and 1 steak
     # Expected total is 30.25
 
-    expect{takeaway.place_order(30.00)}.to raise_error 'That price is unexpected'
+    expect(takeaway.calculate_price).to eq 30.25
 
   end
 
@@ -87,7 +84,7 @@ describe 'Takeaway' do
     time = Time.new
     expect(takeaway).to receive(:order_success).and_return("Thank you! Your order was placed and will be delivered before #{(time.hour+1)%24}:#{time.min}")
 
-    takeaway.place_order(30.25)
+    takeaway.place_order
 
   end
 

@@ -4,10 +4,6 @@ class Menu < Array
     self << dish
   end
 
-  def get_dishes
-    self
-  end
-
   def get_menu
     menu = ""
     each do |dish|

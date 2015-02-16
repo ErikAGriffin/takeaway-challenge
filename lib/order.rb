@@ -16,12 +16,9 @@ class Order < Hash
     has_key? key ? self[key] = number : store(key,number)
   end
 
-  def get_total
-    inject(0) do |total, dish|
-      key = dish.name.to_sym
-      dish_total = dish.price * self[key]
-      total = total + dish_total
-    end
+  def get_total(dish)
+    key = dish.name.to_sym
+    self[key] ? self[key] : 0
   end
 
 

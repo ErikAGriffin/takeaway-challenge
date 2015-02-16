@@ -18,7 +18,7 @@ describe 'Menu' do
   it 'can have a dish added to its list' do
     dish = double :dish
     menu.add_dish(dish)
-    expect(menu.get_dishes).to eq [dish]
+    expect(menu).to eq [dish]
   end
 
 

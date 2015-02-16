@@ -5,23 +5,13 @@ class Takeaway
 
   attr_reader :dishlist
 
-  def initialize(dishes = [],menu = "no menu")
-    @dishlist = dishes
+  def initialize(menu = "no menu")
     @menu = menu
   end
 
-
-  def order(dish,quantity=:ADD)
-    if quantity == :ADD
-      dish.add
-    else
-      dish.set_quantity(quantity)
-    end
-  end
-
-  def calculate_price
-    @dishlist.inject(0) do |sum, dish|
-      dish_total = dish.price * dish.quantity
+  def calculate_price(order)
+    @menu.inject(0) do |sum, dish|
+      dish_total = dish.price * order.get_total(dish)
       sum = sum + dish_total
     end
   end

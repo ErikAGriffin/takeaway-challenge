@@ -27,22 +27,21 @@ describe 'Order' do
     expect(order).to eq({Tofu: 0})
   end
 
-  it 'Calculates the total price correctly' do
-    # Fish    --   7.50
+  it 'Returns the order amount for any requested dish' do
     # Burger  --   6.25
     # Steak   --  11.50
     # –––––––––––––––––
     # Ordering 3 burgers and 1 steak
-    # Expected total is 30.25
 
-    fish = double :dish, name: "Fish", price: 7.50
     burger = double :dish, name: "Cheeseburger", price: 6.25
     steak = double :dish, name: "Rib Eye", price: 11.50
     order.set_quantity(burger,3)
     order.add(steak)
 
-    expect(order.get_total).to eq 30.25
+    expect(order.get_total(burger)).to eq 3
 
   end
+
+
 
 end

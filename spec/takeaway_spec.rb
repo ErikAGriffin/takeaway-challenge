@@ -26,14 +26,16 @@ describe 'Takeaway' do
 
   end
 
-    # !! ** !!
-    # Why does this pass even if I comment out the returning string?
+  # It seems using expect .and_return does not use the real code but sends whatever is in
+  # the .and_return block..
+  # Thus I'm not sure how to test this.
+  # I could just expect .order_success directly but I want it to be a private method
 
   it "Formats a string 'Thank you! Your order was placed and will be delivered before.. when the order is processed" do
 
     time = Time.new
-    expect(takeaway).to receive(:order_success).and_return("Thank you! Your order was placed and will be delivered before #{(time.hour+1)%24}:#{time.min}")
-    takeaway.place_order
+    #expect(takeaway).to receive(:order_success) #.and_return("Thank you! Your order was placed and will be delivered before #{(time.hour+1)%24}:#{time.min}")
+    #takeaway.place_order
 
   end
 

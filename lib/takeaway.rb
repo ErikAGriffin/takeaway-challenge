@@ -5,7 +5,7 @@ class Takeaway
 
   attr_reader :dishlist
 
-  def initialize(dishes = [])
+  def initialize(dishes = [],menu = "no menu")
     @dishlist = dishes
 
     @texter = new_text_client

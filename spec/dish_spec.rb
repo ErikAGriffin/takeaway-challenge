@@ -13,25 +13,4 @@ describe 'Dish' do
   end
 
 
-  # It should NOT have a quantity, unless later
-  # quantity is implemented as 'stock' and is decremented
-  # with each order, so as a takeaway can 'run out' of a dish.
-
-  it 'has an order quantity' do
-    expect(dish.quantity).to eq 0
-  end
-
-  it 'can have its quantity set' do
-    dish.set_quantity(3)
-    expect(dish.quantity).to eq 3
-  end
-
-  it 'can increase quantity by one with .add' do
-
-    dish.add
-    expect(dish.quantity).to eq 1
-
-  end
-
-
 end

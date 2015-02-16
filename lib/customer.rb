@@ -7,9 +7,7 @@ class Customer
   end
 
   def add(dish)
-
     key = dish.name.to_sym
-
     if order.has_key?(key)
       order[key] += 1
     else
@@ -17,10 +15,10 @@ class Customer
     end
   end
 
-  def set_quantity(dish,quant)
+  def set_quantity(dish,number)
     key = dish.name.to_sym
-    quant < 0 ? quant = 0 : quant
-    order.has_key? key ? order[key] = quant : order.store(key,quant)
+    number < 0 ? number = 0 : number
+    order.has_key? key ? order[key] = number : order.store(key,number)
   end
 
 

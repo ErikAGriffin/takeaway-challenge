@@ -1,6 +1,5 @@
 class Menu < Array
 
-
   def add_dish(dish)
     self << dish
   end
